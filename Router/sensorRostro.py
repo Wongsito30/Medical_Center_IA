@@ -28,8 +28,8 @@ async def show_Rostro(db:session=Depends(get_rostro)):
     rostro = db.query(page_models.sensorRostro).all()
     return rostro
 
-@router.post("/registrarRostro/", response_model=page_schemas.Rostro)
-def create_Rostro(entrada: page_schemas.Rostro, db: session = Depends(get_rostro)):
+@router.post("/registrarRostro/", response_model=page_schemas.sensorRostro)
+def create_Rostro(entrada: page_schemas.sensorRostro, db: session = Depends(get_rostro)):
 
     Rostro = page_models.sensorRostro(nombre= entrada.nombre,puesto=entrada.puesto )
     
@@ -39,7 +39,7 @@ def create_Rostro(entrada: page_schemas.Rostro, db: session = Depends(get_rostro
 
     return Rostro
 
-@router.put("/cambiarRostro/{rostro_id}",response_model=page_schemas.Rostro)
+@router.put("/cambiarRostro/{rostro_id}",response_model=page_schemas.sensorRostro)
 def mod_rostro(rostro_id: int, entrada:page_schemas.sensorRostro,db:session=Depends(get_rostro)):
     Rostro = db.query(page_models.sensorRostro).filter_by(id=rostro_id).first()
     Rostro.nombre = entrada.nombre
