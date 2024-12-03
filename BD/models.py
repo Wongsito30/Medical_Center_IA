@@ -1,26 +1,29 @@
-from sqlalchemy import Column, Integer, String, LargeBinary, Float, Date, ForeignKey
+from sqlalchemy import Column, Integer, String, BINARY, DateTime
 from sqlalchemy.dialects.mysql import LONGTEXT, JSON
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import relationship
 
 Base = declarative_base()
 
-class Medicos(Base):
-    __tablename__ = 'medicos'
+class sensorRostro(Base):
+    __tablename__ = 'sensorRostros'
 
     id = Column(Integer, primary_key=True, index=True)
     nombre = Column(String(50))
-    Matricula = Column(String(20)) 
+    puesto = Column(String(20)) 
 
-class Enfermeros(Base):
-    __tablename__ = 'enfermeros'
-
-    id = Column(Integer, primary_key=True, index=True)
-    nombre = Column(String(50))
-    Matricula = Column(String(20)) 
-
-class Guardias(Base):
-    __tablename__ = 'guardias'
+class sensorNFC(Base):
+    __tablename__ = 'sensorNFC'
 
     id = Column(Integer, primary_key=True, index=True)
     nombre = Column(String(50))
+    puesto = Column(String(20)) 
+    uid = Column(BINARY(8))
+    fecha = Column(DateTime)
+
+class sensorHuella(Base):
+    __tablename__ = 'sensorHuellas'
+
+    id = Column(Integer, primary_key=True, index=True)
+    nombre = Column(String(50))
+    puesto = Column(String(20)) 

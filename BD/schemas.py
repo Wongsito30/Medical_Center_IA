@@ -1,26 +1,29 @@
 from pydantic import BaseModel
 from typing import List, Optional
-from datetime import date
+from datetime import date, datetime
 
-class Medicos(BaseModel):
+class sensorRostro(BaseModel):
     id: int
     nombre: str
-    matricula: str
+    puesto: str
     
     class Config:
         from_atributtes = True
 
-class Enfermeros(BaseModel):
+class sensorNFC(BaseModel):
     id: int
     nombre: str
-    matricula: str
+    puesto: str
+    uid: str
+    fecha: datetime
     
     class Config:
         from_atributtes = True
 
-class Guardias(BaseModel):
+class sensorHuella(BaseModel):
     id: int
     nombre: str
+    puesto: str
 
     
     class Config:
