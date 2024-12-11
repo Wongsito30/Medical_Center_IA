@@ -18,7 +18,7 @@ class sensorNFC(Base):
     id = Column(Integer, primary_key=True, index=True)
     nombre = Column(String(50))
     puesto = Column(String(20)) 
-    uid = Column(BINARY(8))
+    uid = Column(String(16))
     fecha = Column(DateTime)
 
 class sensorHuella(Base):

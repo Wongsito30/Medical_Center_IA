@@ -3,7 +3,7 @@ from typing import List, Optional
 from datetime import date, datetime
 
 class sensorRostro(BaseModel):
-    id: int
+    id: Optional[int] = None
     nombre: str
     puesto: str
     
@@ -11,7 +11,7 @@ class sensorRostro(BaseModel):
         from_atributtes = True
 
 class sensorNFC(BaseModel):
-    id: int
+    id: Optional[int] = None
     nombre: str
     puesto: str
     uid: str
@@ -21,7 +21,7 @@ class sensorNFC(BaseModel):
         from_atributtes = True
 
 class sensorHuella(BaseModel):
-    id: int
+    id: Optional[int] = None
     nombre: str
     puesto: str
 
